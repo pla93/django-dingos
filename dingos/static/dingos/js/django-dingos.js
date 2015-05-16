@@ -91,6 +91,7 @@
 			if(v[0]==root_id)
 			    nodes[v[0]]['fixed'] = true;
 		    });
+
 		    $.each(gdata.edges, function(i,v){
 			links.push({
 			    source: nodes[v[0]],
@@ -133,6 +134,19 @@
 			.append("svg:path")
 			.attr("d", "M0,-5L10,0L0,5");
 
+            svg.append("svg:defs").selectAll("marker")
+			.data(["end_cor"])
+			.enter().append("svg:marker")
+			.attr("id", String)
+			.attr("viewBox", "0 -5 10 10")
+			.attr("refX", 21)
+			.attr("refY", 0)
+			.attr("markerWidth", 5)
+			.attr("markerHeight", 5)
+			.attr("orient", "auto")
+			.append("svg:path")
+			.attr("d", "M0,-5L10,0L0,5");
+
 		    function zoom() {
 			svg.attr("transform",
 				 "translate(" + d3.event.translate + ")"
@@ -155,7 +169,14 @@
 			.data(force.links())
 			.enter().append("path")
 			.attr("class", "link")
-			.attr('marker-end', 'url(#end)');
+			.attr('marker-end', 'url(#end)')
+            .each(function(clink) {
+                if(clink.meta.correlation) {
+                    var t = d3.select(this);
+                    t.attr("class", "link correlation");
+                    t.attr('marker-end', 'url(#end_cor)');
+                }
+            });
 
 		    var node = svg.selectAll(".node")
 			.data(force.nodes())

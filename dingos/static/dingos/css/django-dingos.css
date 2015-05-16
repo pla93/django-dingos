@@ -137,8 +137,16 @@ header#grp-header #grp-navigation ul#grp-user-tools:last-child > li.grp-user-opt
     stroke: #ccc;
     stroke-width: 1.5px;
 }
+.iobject-graph-canvas .link.correlation {
+    fill: none;
+    stroke: red;
+    stroke-width: 1.5px;
+}
 .iobject-graph-canvas #end {
     fill: #888;
+}
+.iobject-graph-canvas #end_cor {
+    fill: red;
 }
 
 .iobject-graph-canvas .toggle-hover {
