@@ -316,17 +316,9 @@
 	    });
 	}
 
-
-
-	// Fix the menu behaviour in the menubar
-	$(document).on('click', function(e){
-	    if($(e.target).is($('#grp-navigation > #grp-user-tools > li.grp-user-options-container > a'))){
-		var pl = $(e.target).parent();
-		pl.siblings().removeClass('grp-open').addClass('grp-closed');
-	    }else{
-		$('#grp-navigation > #grp-user-tools > li.grp-user-options-container').removeClass('grp-open').addClass('grp-closed');
-	    }
-	});
+    $("#grp-navigation > #grp-user-tools a").click(function() {
+        $(this).parent("li").siblings("li").removeClass("grp-open").addClass("grp-closed");
+    });
 
 
     });

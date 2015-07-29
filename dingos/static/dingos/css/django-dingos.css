@@ -63,7 +63,7 @@ body > #grp-container > article {
 
 /* fix dropdowns overlapping the menu items */
 header#grp-header #grp-navigation ul li.grp-collapse {
-  position: initial;
+  position: relative;
 }
 
 
@@ -79,7 +79,13 @@ header#grp-header #grp-navigation ul#grp-user-tools:last-child > li.grp-user-opt
     right: 0;
 }
 
-
+/* dropdown level3 display */
+header#grp-header #grp-navigation ul.nav-ul-level3 {
+    position: absolute !important;
+    top: 0;
+    left: auto;
+    right: -100%;
+}
 
 .rotate{
     -moz-transform: rotate(-90deg);                 /*FF*/

@@ -1,9 +1,9 @@
+import importlib
 from menu import Menu, MenuItem
 from django.core.urlresolvers import reverse
 
 from dingos.core import http_helpers
 from view_classes import ViewMethodMixin
-
 
 
 def get_saved_searches_submenu(request):
@@ -50,3 +50,19 @@ Menu.add_item( "mantis_main",
                         check = lambda request: request.user.is_authenticated()
                     )
 )
+
+level2 = (
+    MenuItem("LEV2","test"),
+    MenuItem("LEV2","test"),
+    MenuItem("LEV2","test"),
+)
+
+level1 = (
+    MenuItem("LEV1","",children=level2),
+    MenuItem("LEV1","",children=level2),
+    MenuItem("LEV1","",children=level2),
+)
+
+Menu.add_item("mantis_main",
+              MenuItem("LEV0","",children=level1)
+              )
