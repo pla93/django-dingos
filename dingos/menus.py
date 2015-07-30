@@ -1,6 +1,6 @@
 import importlib
 from menu import Menu, MenuItem
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse, resolve
 
 from dingos.core import http_helpers
 from view_classes import ViewMethodMixin
@@ -22,6 +22,17 @@ def get_saved_searches_submenu(request):
                                  weight = ss.get('weight', 10) ),)
     return submenu
 
+def get_context_menu(request):
+    c_view, args, kwargs = resolve(request.path)
+    m_view = importlib.import_module(c_view.__module__)
+    view_class = getattr(m_view, c_view.__name__)
+
+    try:
+        context_submenu = view_class.context_menu_items
+    except AttributeError:
+        context_submenu = []
+
+    return context_submenu
 
 
 Menu.add_item( "mantis_main",
@@ -51,18 +62,8 @@ Menu.add_item( "mantis_main",
                     )
 )
 
-level2 = (
-    MenuItem("LEV2","test"),
-    MenuItem("LEV2","test"),
-    MenuItem("LEV2","test"),
-)
-
-level1 = (
-    MenuItem("LEV1","",children=level2),
-    MenuItem("LEV1","",children=level2),
-    MenuItem("LEV1","",children=level2),
-)
-
-Menu.add_item("mantis_main",
-              MenuItem("LEV0","",children=level1)
-              )
+Menu.add_item("mantis_main", MenuItem("Kontext",
+                                      "#",
+                                      children=get_context_menu,
+                                      check=lambda request: True if get_context_menu(request) else False
+                                      ))

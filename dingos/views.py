@@ -40,6 +40,8 @@ from dingos.models import Identifier, InfoObject2Fact, InfoObject, UserData, vIO
 from dingos.view_classes import BasicJSONView, POSTPROCESSOR_REGISTRY
 from dingos.core.utilities import listify
 
+from menu import MenuItem
+
 
 import csv
 
@@ -349,6 +351,9 @@ class InfoObjectView_wo_login(BasicDetailView):
 
     show_datatype = False
 
+    context_menu_items = [
+        MenuItem("Specific STIX View", "specific/stix_package")
+    ]
 
     @property
     def iobject2facts(self):
