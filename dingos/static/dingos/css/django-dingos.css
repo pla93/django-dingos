@@ -254,3 +254,82 @@ table {
     width: 100px;
 }
 
+/* MENU STYLING */
+#grp-navigation {
+    border-bottom: 1px solid #000;
+}
+
+#mantis_top_menu > ul {
+    height: 36px;
+    border-left: 1px solid #090909;
+}
+
+#mantis_top_menu li {
+    height: 36px;
+}
+
+#mantis_top_menu ul {
+    float: right;
+    font-weight: bold;
+}
+
+#mantis_top_menu ul ul {
+    position: absolute;
+    top: -999em;
+}
+
+#mantis_top_menu > ul li {
+    border-left: 1px solid #343434;
+    border-right: 1px solid #090909;
+}
+
+#mantis_top_menu ul li {
+    width: 200px;
+    float: left;
+    position: relative;
+    border: none;
+}
+
+#mantis_top_menu ul li:hover > ul {
+    position: relative;
+    top: auto;
+}
+
+#mantis_top_menu ul li ul li:hover ul {
+    position: relative;
+    left: 200px;
+    top: -18px;
+}
+
+/* fix 1px border below horizontal navi */
+#grp-context-navigation {
+    border: none;
+}
+
+/* BACKGROUND COLOR / IMAGE NAVI */
+header#grp-header #grp-navigation, #mantis_top_menu ul li {
+    background-image: linear-gradient(#222222,#333333);
+}
+
+/* Link Styling */
+#mantis_top_menu ul li a {
+    display: block;
+    padding: 10px;
+    color: #4FB2D3;
+    cursor: pointer;
+}
+
+/* Link Styling on hover */
+#mantis_top_menu ul li a:hover {
+    color: #FFFFFF;
+}
+
+/* Title (in Header) Styling */
+#grp-admin-title {
+    color: #FFFFFF;
+}
+
+/* inserts content before <a> tag element if there's a submenu under the current menu item */
+.submenu:before {
+    content: '+ ';
+}
