@@ -62,12 +62,6 @@ Menu.add_item( "mantis_main",
                     )
 )
 
-Menu.add_item("mantis_main", MenuItem("Kontext",
-                                      "#",
-                                      children=get_context_menu,
-                                      check=lambda request: True if get_context_menu(request) else False
-                                      ))
-
 level2 = (
     MenuItem("LEV2","test"),
     MenuItem("LEV2","test"),

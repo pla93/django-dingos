@@ -254,7 +254,7 @@ table {
     width: 100px;
 }
 
-/* MENU STYLING */
+/* main menu styling */
 #grp-navigation {
     border-bottom: 1px solid #000;
 }
@@ -271,6 +271,8 @@ table {
 #mantis_top_menu ul {
     float: right;
     font-weight: bold;
+    overflow: visible;
+    z-index: 1100;
 }
 
 #mantis_top_menu ul ul {
@@ -278,7 +280,7 @@ table {
     top: -999em;
 }
 
-#mantis_top_menu > ul li {
+#mantis_top_menu ul:first-child li {
     border-left: 1px solid #343434;
     border-right: 1px solid #090909;
 }
@@ -308,11 +310,11 @@ table {
 
 /* BACKGROUND COLOR / IMAGE NAVI */
 header#grp-header #grp-navigation, #mantis_top_menu ul li {
-    background-image: linear-gradient(#222222,#333333);
+    background-image: linear-gradient(#333333,#222222);
 }
 
 /* Link Styling */
-#mantis_top_menu ul li a {
+#mantis_top_menu ul li a, #mantis_context_menu ul li a {
     display: block;
     padding: 10px;
     color: #4FB2D3;
@@ -320,7 +322,7 @@ header#grp-header #grp-navigation, #mantis_top_menu ul li {
 }
 
 /* Link Styling on hover */
-#mantis_top_menu ul li a:hover {
+#mantis_top_menu ul li a:hover, #mantis_context_menu ul li a:hover {
     color: #FFFFFF;
 }
 
@@ -333,3 +335,50 @@ header#grp-header #grp-navigation, #mantis_top_menu ul li {
 .submenu:before {
     content: '+ ';
 }
+
+/* context menu styling */
+
+/* styling of container element, set background color for second menu stripe here */
+#context_menu_container {
+    padding: 0 20px;
+    position: relative;
+    width: 100%;
+    clear: both;
+    box-sizing: border-box;
+    height: 36px;
+    background-image: linear-gradient(#222222,#610B0B);
+}
+
+/* style context menu title */
+#context_menu_title {
+    float: left;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 0;
+    padding: 10px 10px 10px 0;
+    color: #FFFFFF;
+}
+
+#mantis_context_menu > ul {
+    height: 36px;
+    border-left: 1px solid #090909;
+    float: left;
+    font-weight: bold;
+}
+
+#mantis_context_menu li {
+    height: 36px;
+    border-left: 1px solid #343434;
+    border-right: 1px solid #090909;
+    width: 200px;
+    float: left;
+    position: relative;
+}
+
+#context_menu_container img {
+    display: block;
+    padding: 10px 10px 10px 0;
+    float: left;
+}
+
+

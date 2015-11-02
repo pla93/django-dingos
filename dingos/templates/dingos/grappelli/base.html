@@ -44,3 +44,18 @@ Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
   <h1>{{ title }}</h1>
 {% endblock %}
 
+{% block context-navigation %}
+{% if view.view_context_menu %}
+<div id="context_menu_container">
+  <h2 id="context_menu_title">{{ view.view_context_menu.title }}</h2>
+  <img src="{{ view.view_context_menu.image }}" />
+  <nav id="mantis_context_menu">
+    <ul>
+    {% for level1 in view.view_context_menu.items %}
+        <li><a href="{{ level1.1 }}">{{ level1.0 }}</a></li>
+    {% endfor %}
+    </ul>
+  </nav>
+</div>
+{% endif %}
+{% endblock %}

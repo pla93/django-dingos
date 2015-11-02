@@ -351,9 +351,14 @@ class InfoObjectView_wo_login(BasicDetailView):
 
     show_datatype = False
 
-    context_menu_items = [
-        MenuItem("Specific STIX View", "specific/stix_package")
-    ]
+    view_context_menu = {
+        'image': '/static/admin/img/selector-search.gif',
+        'title': 'Kontext Menu',
+        'items': [
+            ('Specific STIX View', 'specific/stix_package'),
+            ('Test', '#')
+        ]
+    }
 
     @property
     def iobject2facts(self):

@@ -315,12 +315,6 @@
 
 	    });
 	}
-
-    //$("#grp-navigation > #grp-user-tools a").click(function() {
-    //    $(this).parent("li").siblings("li").removeClass("grp-open").addClass("grp-closed");
-    //});
-
-
     });
 
 
